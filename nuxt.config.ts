@@ -15,6 +15,11 @@ export default defineNuxtConfig({
         { rel: 'preconnect', href: 'https://fonts.gstatic.com' },
         { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono&display=swap' },
       ]
+    },
+    supabase : {
+      supabaseUrl: process.env.SUPABASE_URL,
+      suoabaseKey: process.env.SUPABASE_KEY
     }
+    
   }
 })

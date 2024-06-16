@@ -7,6 +7,9 @@
       <br>
       Starter Template
     </h1>
+    <ul>
+    <li v-for="country in countries" :key="country.id">{{ country.city }} dari negara {{ country.name }}</li>
+  </ul>
     <p class="kRTmDC">
       Authentication template with email and password, using Supabase. If you want to a quick start to your next Nuxt3 app, please feel free to use this template.
     </p>
@@ -63,5 +66,17 @@ useHead({
   meta: [
     { name: 'description', content: 'Authentication template with email and password, using Supabase. If you want to a quick start to your next Nuxt3 app, please feel free to use this template.' }
   ]
+})
+
+
+const countries = ref([])
+
+async function getCountries() {
+  const { data } = await client.from('countries').select()
+  countries.value = data
+}
+
+onMounted(() => {
+  getCountries()
 })
 </script>
